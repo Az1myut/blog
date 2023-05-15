@@ -1,0 +1,24 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <ul>
+    <li><a href="{% url 'set_cookie' %}">Установить cookie</a></li>
+    <li><a href="{% url 'get_cookie' %}">Получить cookie</a></li>
+    <li><a href="{% url 'delete_cookie' %}">Удалить cookie</a></li>
+    <li><a href="{% url 'set_session' %}">Установить значение сессии</a></li>
+    <li><a href="{% url 'get_session' %}">Получить значение сессии</a></li>
+    <li><a href="{% url 'delete_session' %}">Удалить значение сессии</a></li>
+    <li><a href="{% url 'sign_data' %}">Подписать данные</a></li>
+    <li><a href="{% url 'verify_data' %}">Проверить данные</a></li>
+    <li><a href="{% url 'class_based' %}">Проверить данные при помощи класса</a></li>
+    <li><a href="{% url 'class_sign' %}">Подписать данные при помощи класса</a></li>
+    </ul>
+{% endblock %}

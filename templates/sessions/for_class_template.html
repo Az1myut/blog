@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    
+    
+    {% if my_cookie_value %}
+
+        {% for message in messages %}
+            {% if message.tags %}
+                {% if message.level ==  DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    {{ message}}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+            
+        <p>Значение cookie: {{ my_cookie }}</p>
+        <p>Подписанные данные: {{ my_cookie_value }}</p>
+    {% endif %}
+        
+{% endblock %}

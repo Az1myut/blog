@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    
+{% if messages %}
+<ul class='messages'>
+    {% for message in messages %}
+        {% if message.tags %}
+            {% if message.level ==  DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+        
+    {{ posts }}
+    {{ hide_comments }}
+    {{ object }}
+
+    {% comment %} Внутри middleware {% endcomment %}
+    <br>Внутри middleware<br>
+    {% for itemm_post in mid_posts_claass %}
+        {{ itemm_post }}
+    {% endfor %}
+
+    {% comment %} При помощи обработчика контекста {% endcomment %}
+    <br>При помощи обработчика контекста<br>
+    {% for itemm_post in mid_posts %}
+        {{ itemm_post }}
+    {% endfor %}
+
+    <p>{{ current_user }}</p>
+
+
+
+{% endblock content %}
