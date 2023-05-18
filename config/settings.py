@@ -147,7 +147,6 @@ AUTH_USER_MODEL = "users.User"
 # EMAIL_HOST_PASSWORD = 'dasdasd'
 # EMAIL_USE_TLS = False
 # EMAIL_USE_SSL = True
-
 # DEFAULT_FROM_EMAIL = 'mail.for.mail@rambler.ru'
 # SERVER_EMAIL = 'mail.for.mail@rambler.ru'
 

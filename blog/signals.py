@@ -1,7 +1,7 @@
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.core.mail import send_mail, send_mass_mail, mail_admins
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import pre_save, post_save, post_init
 from django.dispatch import receiver, Signal
 from django.utils.text import slugify
 from blog.models import Post
@@ -87,6 +87,10 @@ def send_email_on_save(sender, instance, **kwargs):
         fail_silently=False,
     )
 
+@receiver(post_init, sender = Post)
+def print_post_init(sender, instance, **kwargs):
+    if instance:
+        ic(f'Post was created but not saved')
 
 @receiver(my_signal)
 def my_signal_handler(sender, instance, created, **kwargs):

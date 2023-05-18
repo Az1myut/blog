@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
     list_display_links = ["email"]
     search_fields = ("email",)
     ordering = ("email",)
-    # inlines = (UserProfileInline,)
+    inlines = (UserProfileInline,)
     list_display = (
         "email",
         "is_staff",
